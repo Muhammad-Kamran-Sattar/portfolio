@@ -30,6 +30,7 @@
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
         }
 
         /* Animated background grid */
@@ -88,7 +89,7 @@
 
         /* Header */
         header {
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             border-bottom: 1px solid var(--border);
             backdrop-filter: blur(10px);
             background: rgba(10, 14, 20, 0.8);
@@ -101,11 +102,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .logo {
             font-family: 'Orbitron', monospace;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--primary);
             display: flex;
@@ -126,7 +129,7 @@
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             list-style: none;
         }
 
@@ -134,7 +137,7 @@
             color: var(--text);
             text-decoration: none;
             font-weight: 400;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: all 0.3s;
             position: relative;
             padding: 0.5rem 0;
@@ -167,7 +170,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 6rem 0;
+            padding: 4rem 0;
             text-align: center;
         }
 
@@ -178,6 +181,7 @@
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             animation: fadeIn 1s ease-out;
+            max-width: 100%;
         }
 
         @keyframes fadeIn {
@@ -212,19 +216,26 @@
 
         .terminal-title {
             margin-left: auto;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-dim);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .terminal-content {
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: left;
+            font-size: 0.9rem;
+            overflow-x: auto;
         }
 
         .terminal-line {
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             opacity: 0;
             animation: terminalType 0.5s forwards;
+            white-space: normal;
+            word-break: break-word;
         }
 
         .terminal-line:nth-child(1) { animation-delay: 0.2s; }
@@ -255,7 +266,7 @@
 
         .output {
             color: var(--text-dim);
-            margin-left: 1.5rem;
+            margin-left: 1rem;
         }
 
         .highlight {
@@ -265,32 +276,34 @@
 
         /* Projects Section */
         .projects {
-            padding: 4rem 0;
+            padding: 3rem 0;
         }
 
         .section-title {
             font-family: 'Orbitron', monospace;
-            font-size: 2rem;
+            font-size: 1.75rem;
             color: var(--primary);
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             text-align: center;
             text-shadow: var(--glow);
         }
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            gap: 1.5rem;
         }
 
         .project-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 2rem;
+            padding: 1.5rem;
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card::before {
@@ -322,19 +335,20 @@
         }
 
         .project-icon {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
             background: var(--primary);
             border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--darker-bg);
         }
 
         .project-title {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: var(--primary);
             font-weight: 600;
         }
@@ -342,41 +356,42 @@
         .project-desc {
             color: var(--text-dim);
             margin-bottom: 1.5rem;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            flex-grow: 1;
         }
 
         .project-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.4rem;
         }
 
         .tag {
             background: rgba(0, 255, 136, 0.1);
             border: 1px solid rgba(0, 255, 136, 0.3);
-            padding: 0.25rem 0.75rem;
+            padding: 0.2rem 0.6rem;
             border-radius: 4px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--primary);
         }
 
         /* Contact Section */
         .contact {
-            padding: 4rem 0;
+            padding: 3rem 0;
         }
 
         .payload-section {
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 2rem;
+            padding: 1.5rem;
             max-width: 800px;
             margin: 0 auto;
         }
 
         .payload-title {
             color: var(--primary);
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             margin-bottom: 1.5rem;
         }
 
@@ -387,7 +402,7 @@
         .input-label {
             display: block;
             color: var(--text-dim);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             margin-bottom: 0.5rem;
         }
 
@@ -396,10 +411,10 @@
             background: var(--darker-bg);
             border: 1px solid var(--border);
             color: var(--text);
-            padding: 1rem;
+            padding: 0.9rem;
             border-radius: 4px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: all 0.3s;
         }
 
@@ -410,7 +425,7 @@
         }
 
         textarea.input-field {
-            min-height: 150px;
+            min-height: 120px;
             resize: vertical;
         }
 
@@ -419,9 +434,9 @@
             background: var(--primary);
             color: var(--darker-bg);
             border: none;
-            padding: 1rem 2rem;
+            padding: 1rem;
             font-family: 'Orbitron', monospace;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 700;
             border-radius: 4px;
             cursor: pointer;
@@ -451,7 +466,7 @@
             border-top: 1px solid var(--border);
             margin-top: 4rem;
             color: var(--text-dim);
-            font-size: 0.85rem;
+            font-size: 0.75rem;
         }
 
         .made-with {
@@ -462,9 +477,10 @@
             border: 1px solid var(--border);
             padding: 0.5rem 1rem;
             border-radius: 4px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-dim);
             z-index: 100;
+            display: none; /* Hidden on small screens via media query if needed */
         }
 
         /* Glitch effect for headings */
@@ -481,44 +497,26 @@
             animation: glitch 0.3s;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .hero {
-                padding: 3rem 0;
-            }
-
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .terminal-content {
-                padding: 1.5rem;
-            }
-        }
-
         /* Currently Working Section */
         .currently-working {
-            padding: 4rem 0;
+            padding: 3rem 0;
         }
 
         .work-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 1.5rem;
         }
 
         .work-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 2rem;
+            padding: 1.5rem;
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            z-index: 1;
         }
 
         .work-card::before {
@@ -545,7 +543,7 @@
         }
 
         .work-icon {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
             display: inline-block;
             animation: float 3s ease-in-out infinite;
@@ -556,19 +554,14 @@
             50% { transform: translateY(-10px); }
         }
 
-        .work-card:nth-child(2) .work-icon {
-            animation-delay: 0.5s;
-        }
-
-        .work-card:nth-child(3) .work-icon {
-            animation-delay: 1s;
-        }
+        .work-card:nth-child(2) .work-icon { animation-delay: 0.5s; }
+        .work-card:nth-child(3) .work-icon { animation-delay: 1s; }
 
         .work-title {
             color: var(--primary);
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
             font-family: 'Orbitron', monospace;
         }
 
@@ -586,38 +579,48 @@
 
         .work-label {
             color: var(--text-dim);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .work-value {
             color: var(--text);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         /* Skills Section */
         .skills {
-            padding: 4rem 0;
+            padding: 3rem 0;
         }
 
         .skills-container {
             display: grid;
-            gap: 3rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .skills-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            .skill-category:last-child {
+                grid-column: span 2;
+            }
         }
 
         .skill-category {
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .category-title {
             color: var(--primary);
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
@@ -625,13 +628,13 @@
         }
 
         .category-icon {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
 
         .skill-bars {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
 
         .skill-item {
@@ -648,18 +651,18 @@
 
         .skill-name {
             color: var(--text);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .skill-level {
             color: var(--text-dim);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .skill-bar {
-            height: 8px;
+            height: 6px;
             background: var(--darker-bg);
             border-radius: 4px;
             overflow: hidden;
@@ -693,16 +696,16 @@
 
         .tool-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
             gap: 0.75rem;
         }
 
         .tool-tag {
             background: rgba(0, 255, 136, 0.1);
             border: 1px solid rgba(0, 255, 136, 0.3);
-            padding: 0.75rem;
+            padding: 0.6rem;
             border-radius: 4px;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: var(--primary);
             text-align: center;
             transition: all 0.3s;
@@ -714,6 +717,66 @@
             border-color: var(--primary);
             box-shadow: var(--glow);
             transform: translateY(-2px);
+        }
+
+        /* RESPONSIVE BREAKPOINTS */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+
+            header {
+                padding: 1rem 0;
+            }
+
+            nav {
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero {
+                padding: 2.5rem 0;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .terminal-content {
+                padding: 1rem;
+            }
+
+            .terminal-line {
+                font-size: 0.8rem;
+            }
+
+            .output {
+                margin-left: 0.5rem;
+            }
+
+            .made-with {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links a {
+                font-size: 0.75rem;
+            }
+
+            .project-card, .work-card, .skill-category, .payload-section {
+                padding: 1.25rem;
+            }
+
+            .logo {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -1040,19 +1103,18 @@
             <h2 class="section-title">// Establish Connection</h2>
             <div class="payload-section">
                 <h3 class="payload-title">Payload (Message)</h3>
-                <!-- ADDED ID AND NAME ATTRIBUTES BELOW -->
                 <form id="contactForm">
                     <div class="input-group">
                         <label class="input-label">> Enter your identifier (name)</label>
-                        <input type="text" name="name" class="input-field" placeholder="user@domain..." required>
+                        <input type="text" name="entry.2005620554" class="input-field" placeholder="user@domain..." required>
                     </div>
                     <div class="input-group">
                         <label class="input-label">> Enter transmission vector (email)</label>
-                        <input type="email" name="email" class="input-field" placeholder="user@domain.com" required>
+                        <input type="email" name="entry.1045781291" class="input-field" placeholder="user@domain.com" required>
                     </div>
                     <div class="input-group">
                         <label class="input-label">> Enter encryption key or message...</label>
-                        <textarea name="message" class="input-field" placeholder="Your secure message here..." required></textarea>
+                        <textarea name="entry.1065046570" class="input-field" placeholder="Your secure message here..." required></textarea>
                     </div>
                     <button type="submit" class="transmit-btn">Transmit Data</button>
                 </form>
@@ -1067,10 +1129,8 @@
     </footer>
 
     <script>
-    // 1. REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
-    const GOOGLE_SCRIPT_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSd0h6BrgQNsQyjIuOCwN2jE8zhHLWAbMLcJzSWrP4ju6CZPOw/viewform?usp=header';
+    const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSffDTT_nPK_K22ul9fhkokNPzGszZwQ7VKE9gOkXyXAeK15iw/formResponse';
 
-    // Form submission handler
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -1078,19 +1138,18 @@
         const originalText = btn.innerHTML;
         const form = this;
         
-        // Visual Feedback
         btn.innerHTML = '⚡ TRANSMITTING...';
         btn.style.background = 'var(--secondary)';
         btn.style.pointerEvents = 'none';
 
-        // Get data from form using names
         const formData = new FormData(form);
 
-        fetch(GOOGLE_SCRIPT_URL, {
+        fetch(GOOGLE_FORM_URL, {
             method: 'POST',
+            mode: 'no-cors', 
             body: formData
         })
-        .then(response => {
+        .then(() => {
             btn.innerHTML = '✓ TRANSMISSION COMPLETE';
             btn.style.background = '#27c93f';
             form.reset();
@@ -1103,12 +1162,7 @@
         })
         .catch(error => {
             console.error('Error!', error.message);
-            // Even if there is a CORS error, Google Script usually receives the data
-            // We show success for a better user experience
-            btn.innerHTML = '✓ TRANSMISSION COMPLETE';
-            btn.style.background = '#27c93f';
-            form.reset();
-            
+            btn.innerHTML = '⚠ ERROR DETECTED';
             setTimeout(() => {
                 btn.innerHTML = originalText;
                 btn.style.background = 'var(--primary)';
@@ -1117,21 +1171,23 @@
         });
     });
 
-    // Smooth scroll for navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                const headerOffset = 100;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
     });
 
-    // Random glitch effect on page load
     function randomGlitch() {
         const cards = document.querySelectorAll('.project-card');
         if(cards.length > 0) {
@@ -1145,8 +1201,7 @@
 
     setInterval(randomGlitch, 5000);
 
-    // Animate skill bars on scroll
-    const observerOptions = { threshold: 0.5, rootMargin: '0px' };
+    const observerOptions = { threshold: 0.2, rootMargin: '0px' };
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1163,7 +1218,6 @@
     const skillsSection = document.querySelector('.skills');
     if (skillsSection) observer.observe(skillsSection);
 
-    // Animate work cards on scroll
     const workCards = document.querySelectorAll('.work-card');
     workCards.forEach((card, index) => {
         card.style.opacity = '0';
